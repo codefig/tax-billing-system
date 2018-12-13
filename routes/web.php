@@ -26,3 +26,7 @@ Route::get('/admin', 'AdminController@showLogin')->name('admin.login');
 Route::post('/admin/login', 'AdminController@loginSubmit')->name('admin.login.submit');
 Route::get('/admin/home', 'Auth\AdminController@showHome')->name('admin.home');
 Route::get('/admin/logout', 'Auth\AdminController@logout')->name('admin.logout');
+
+Route::get('/admin/driver/add', 'Auth\AdminController@showAddDriver')->name('admin.driver.add');
+Route::get('/admin/payments', 'Auth\AdminController@showPayments')->name('admin.payments.show');
+Route::get('/admin/history', 'Auth\AdminController@showPaymentHistory')->name('admin.payments.history');

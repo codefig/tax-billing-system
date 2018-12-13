@@ -26,4 +26,16 @@ class AdminController extends Controller
         Auth::logout();
         return redirect()->route('admin.login');
     }
+
+    public function showAddDriver(Request $request){
+        return "this is the show Add dreiver";
+    }
+
+    public function showPayments(){
+        return "this is the show paymenst function";
+    }
+
+    public function showPaymentHistory(){
+        return "this isthe payment history page";
+    }
 }

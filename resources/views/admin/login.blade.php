@@ -33,13 +33,13 @@
           <form method="post" action="{{route('admin.login.submit')}}">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus" name="email">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus="autofocus" name="email">
                 <label for="inputEmail">Email address</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" name="password">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
                 <label for="inputPassword">Password</label>
               </div>
             </div>
@@ -48,14 +48,11 @@
             {{-- <a class="btn btn-primary btn-block" href="index.html">Login</a> --}}
             <input type='hidden' name="_token" value="{{Session::token()}}">
           </form>
-
-              @if (count($errors) > 0)
-                            <div class="alert alert-danger" style="margin:10px">
-                                    @foreach ($errors->all() as $error)
-                                         <li>{{ $error }}</li>
-                                     @endforeach
-                            </div>
-              @endif
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li classs="alert alert-danger">{!! $error !!}</li>
+            @endforeach
+          </ul>
         </div>
       </div>
     </div>
