@@ -33,32 +33,29 @@
           <form method="post" action="{{route('admin.login.submit')}}">
             <div class="form-group">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus" name="email">
                 <label for="inputEmail">Email address</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" name="password">
                 <label for="inputPassword">Password</label>
               </div>
             </div>
-            <div class="form-group">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="remember-me">
-                  Remember Password
-                </label>
-              </div>
-            </div>
-            <a class="btn btn-primary btn-block" href="index.html">Login</a>
+           
+            <input  class="btn btn-primary btn-block" type="submit" id="submitBtn" value="Login">
+            {{-- <a class="btn btn-primary btn-block" href="index.html">Login</a> --}}
+            <input type='hidden' name="_token" value="{{Session::token()}}">
           </form>
 
-          
-          <div class="text-center">
-            <a class="d-block small mt-3" href="register.html">Register an Account</a>
-            <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-          </div>
+              @if (count($errors) > 0)
+                            <div class="alert alert-danger" style="margin:10px">
+                                    @foreach ($errors->all() as $error)
+                                         <li>{{ $error }}</li>
+                                     @endforeach
+                            </div>
+              @endif
         </div>
       </div>
     </div>

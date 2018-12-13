@@ -84,8 +84,8 @@
 								<li><a href="#">Canada</a></li>
 							</ul>
 						</li>
-						<li><a href="pricing.html">Pricing</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="{{route('admin.login')}}">Admin Login</a></li>
+						<li><a href="{{route('login')}}">Login</a></li>
 					</ul>	
 				</div>
 			</div>

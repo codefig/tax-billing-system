@@ -11,20 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//User routes
+Route::get('/', 'UserController@index')->name('index');
+Route::get('/login', 'UserController@login')->name('login');
 
 
-Route::get('/login', function(){
-	return view('login');
-});
+//Admin routes
+// Route::prefix('/admin')->group(function(){
 
+// });
 
-Route::prefix('/admin')->group(function(){
-
-Route::get('/', 'AdminController@showLogin')->name('admin.login');
-Route::post('/login', 'AdminController@loginSubmit')->name('admin.login.submit');
-Route::get('/home', 'Auth\AdminController@showHome')->name('admin.home');
-	
-});
+Route::get('/admin', 'AdminController@showLogin')->name('admin.login');
+Route::post('/admin/login', 'AdminController@loginSubmit')->name('admin.login.submit');
+Route::get('/admin/home', 'Auth\AdminController@showHome')->name('admin.home');
+Route::get('/admin/logout', 'Auth\AdminController@logout')->name('admin.logout');
