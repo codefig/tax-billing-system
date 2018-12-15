@@ -28,14 +28,18 @@ class AdminController extends Controller
     }
 
     public function showAddDriver(Request $request){
-        return "this is the show Add dreiver";
+        return view('admin.adddriver');
+    }
+
+    public function updateDriver(Request $request){
+        return view('admin.updatedriver');
     }
 
     public function showPayments(){
-        return "this is the show paymenst function";
+        return view('admin.payments');
     }
 
     public function showPaymentHistory(){
-        return "this isthe payment history page";
+        return view('admin.payment-history');
     }
 }
