@@ -134,13 +134,100 @@
             <li class="breadcrumb-item">
               <a href="index.html">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Add Driver</li>
           </ol>
 
           <!-- Page Content -->
-          <h1>Blank Page</h1>
+          <h1>Driver</h1>
           <hr>
-          <p>This is a great starting point for new custom pages.</p>
+          <p>Please all fields are required</p>
+
+          <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+
+              <label>Passport Image</label>
+              <input type="file" accept="image/*" enctype="multipart/form-data" name="photograph" id="photograph" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label>Car Owner Name</label>
+              <input type="text" class="form-control" id="owners_name" name="owners_name">
+            </div>
+
+            <div class="form-group">
+              <label>Driver Name </label>
+              <input type="text" class="form-control" id="drivers_name" name="drivers_name">
+            </div>
+
+            <div class="form-group">
+              <label>Engine Number</label>
+              <input type="text" class="form-control" id="engine_no" name="engine_no">
+            </div>
+
+            <div class="form-group">
+              <label>Plate Number</label>
+              <input type="text" class="form-control" id="plate_no" name="plate_no">
+            </div>
+            
+            <div class="form-group">
+              <label>Chassis Number</label>
+              <input type="text" class="form-control" id="chassis_no" name="chassis_no">
+            </div>
+
+            <div class="form-group">
+              <label>Licence Number</label>
+              <input type="text" class="form-control" id="licence_no" name="licence_no">
+            </div>
+
+            <div class="form-group">
+              <label>Car description</label>
+              <input type="text" class="form-control" name="car_description" id='car_description'>
+            </div>
+
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input type="text" class="form-control" id="mobile_no" name="mobile_no">
+            </div>
+
+            <div class="form-group">
+              <label>Nationality</label>
+              <input type="text" class="form-control" id="nationality" name="nationality">
+            </div>
+
+            <div class="form-group">
+              <label>State</label>
+              <input type="text" class='form-control' id="state" name="state">
+            </div>
+
+            <div class="form-group">
+              <label>Local Government Area</label>
+              <input type="text" class="form-control" id="lga" name="lga">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add Record</button>
+              <input type="hidden" name="_token" value="{{Session::token()}}"
+            </div>
+
+          </form>
+
+          @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+
+
+          @if(Session::has('success_message'))
+          <div class='alert alert-success'>
+              <span> {{ Session::get('success_message') }}</span>
+          </div>
+          @endif
 
         </div>
         <!-- /.container-fluid -->
