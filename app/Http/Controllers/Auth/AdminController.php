@@ -42,7 +42,7 @@ class AdminController extends Controller
             'engine_no' => 'required', 
             'chassis_no' => 'required', 
             'licence_no' => 'required', 
-            'description' => 'required', 
+            'car_description' => 'required', 
             'phone_no' => 'required', 
             'nationality' => 'required',
             'state' => 'required',
@@ -84,8 +84,17 @@ class AdminController extends Controller
 
     }
 
+    public function showUpdateDriver(){
+        return view('admin.updatedriver');
+    }
+
     public function updateDriver(Request $request){
         return view('admin.updatedriver');
+    }
+
+    public function searchDriver(Request $request){
+        // return "this is the search driver function";
+        echo "welcome to the page";
     }
 
     public function showPayments(){

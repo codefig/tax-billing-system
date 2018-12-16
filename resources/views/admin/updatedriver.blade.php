@@ -134,13 +134,26 @@
             <li class="breadcrumb-item">
               <a href="index.html">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Driver</li>
           </ol>
 
           <!-- Page Content -->
-          <h1>Blank Page</h1>
+          <h1>Drivers</h1>
           <hr>
-          <p>This is a great starting point for new custom pages.</p>
+          <p>Search for Car/Driver record using plate number</p>
+
+
+          <form method="post" id="findForm" name="findForm" action="{{route('admin.driver.find')}}">
+            <div class="form-group">
+              <label>Plate Number</label>
+              <input type="text" name="plate_no" id="plate_no" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add Record</button>
+              <input type="hidden" name="_token" value="{{Session::token()}}"
+            </div>
+          </form>
 
         </div>
         <!-- /.container-fluid -->
