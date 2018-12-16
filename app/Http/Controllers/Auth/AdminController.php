@@ -96,7 +96,7 @@ class AdminController extends Controller
 
             $user = User::where('plate_no', $request->plate_no)->get();
             if(count($user) > 0){
-                return "lets go do somethng";
+                return view('admin.showdriver', compact('user'));
             }else{
                 Session::flash('error_message', "Sorry, no record found with that plate number");
                 return redirect()->back();

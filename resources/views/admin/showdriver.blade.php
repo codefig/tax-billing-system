@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Add Driver </title>
+    <title>SB Admin - Driver Record </title>
 
     <link href="{{URL::to('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -134,13 +134,15 @@
             <li class="breadcrumb-item">
               <a href="{{route('admin.home')}}">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Add Driver</li>
+            <li class="breadcrumb-item active">Found Driver Record</li>
           </ol>
 
           <!-- Page Content -->
           <h1>Driver</h1>
           <hr>
           <p>Please all fields are required</p>
+
+          <img src="..." alt="..." class="img-thumbnail" style="height:200;width:200;">
 
           <form method="post" enctype="multipart/form-data">
             <div class="form-group">
