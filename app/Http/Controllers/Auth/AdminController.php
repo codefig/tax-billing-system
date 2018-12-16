@@ -87,14 +87,28 @@ class AdminController extends Controller
     public function showUpdateDriver(){
         return view('admin.updatedriver');
     }
+    
+    public function searchDriver(Request $request){
+            // return "this is the search driver function";
+            $this->validate($request, [
+                'plate_no' => 'required'
+            ]);
+
+            $user = User::where('plate_no', $request->plate_no)->get();
+            if(count($user) > 0){
+                return "lets go do somethng";
+            }else{
+                Session::flash('error_message', "Sorry, no record found with that plate number");
+                return redirect()->back();
+            }
+    }
+
+    public function showFoundDriver(Request $request){
+        return "this is the show found driver ";
+    }
 
     public function updateDriver(Request $request){
         return view('admin.updatedriver');
-    }
-
-    public function searchDriver(Request $request){
-        // return "this is the search driver function";
-        echo "welcome to the page";
     }
 
     public function showPayments(){

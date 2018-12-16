@@ -150,10 +150,17 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary">Add Record</button>
+              <button type="submit" class="btn btn-primary">Find</button>
               <input type="hidden" name="_token" value="{{Session::token()}}"
             </div>
           </form>
+          
+          @if(Session::has('error_message'))
+          <br/>
+          <div class='alert alert-danger'>
+              <span> {{ Session::get('error_message') }}</span>
+          </div>
+          @endif
 
         </div>
         <!-- /.container-fluid -->
