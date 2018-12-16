@@ -43,7 +43,7 @@ class AdminController extends Controller
             'chassis_no' => 'required', 
             'licence_no' => 'required', 
             'car_description' => 'required', 
-            'phone_no' => 'required', 
+            'mobile_no' => 'required', 
             'nationality' => 'required',
             'state' => 'required',
             'lga' => 'required', 
