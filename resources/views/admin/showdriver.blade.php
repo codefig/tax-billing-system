@@ -142,7 +142,12 @@
           <hr>
           <p>Please all fields are required</p>
 
-          <img src="..." alt="..." class="img-thumbnail" style="height:200;width:200;">
+          @if(count($user) > 0)
+          @foreach ($user as $driver)
+          {{-- <option value="{{ $driver->id }}">{{ $driver->drivers_name }}</option> --}}
+          <img src="{{URL::to($driver->photograph)}}" alt="..." class="img-thumbnail" style="height:200px;width:200px;">
+            @endforeach
+          @endif
 
           <form method="post" enctype="multipart/form-data">
             <div class="form-group">
