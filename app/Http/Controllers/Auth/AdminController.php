@@ -35,19 +35,19 @@ class AdminController extends Controller
 
     public function postAddDriver(Request $request){
 
-        // $this->validate($request, [
-        //     'photograph' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-        //     'owners_name' => 'required', 
-        //     'drivers_name' => 'required',
-        //     'engine_no' => 'required', 
-        //     'chassis_no' => 'required', 
-        //     'licence_no' => 'required', 
-        //     'description' => 'required', 
-        //     'phone_no' => 'required', 
-        //     'nationality' => 'required',
-        //     'state' => 'required',
-        //     'lga' => 'required', 
-        // ]);
+        $this->validate($request, [
+            'photograph' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'owners_name' => 'required', 
+            'drivers_name' => 'required',
+            'engine_no' => 'required', 
+            'chassis_no' => 'required', 
+            'licence_no' => 'required', 
+            'description' => 'required', 
+            'phone_no' => 'required', 
+            'nationality' => 'required',
+            'state' => 'required',
+            'lga' => 'required', 
+        ]);
 
         if($request->hasfile('photograph')){
             
