@@ -38,6 +38,7 @@ Route::post('/admin/driver/add', 'Auth\AdminController@postAddDriver')->name('ad
 Route::get('/admin/driver/update', 'Auth\AdminController@showUpdateDriver')->name('admin.driver.showUpdate');
 Route::post('/admin/driver/update', 'Auth\AdminController@updateDriver')->name('admin.driver.updateForm');
 
+//Route to search a driver using his plate-number;
 Route::post('/admin/driver/find', 'Auth\AdminController@searchDriver')->name('admin.driver.find');
 
 //Search for driver using plate no record 

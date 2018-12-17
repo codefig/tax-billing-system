@@ -152,9 +152,7 @@ class AdminController extends Controller
             return redirect()->route('admin.driver.showUpdate');
     }
 
-    public function showFoundDriver(){
-        return "this is the show drivers function";
-    }
+
 
     public function showPayments(){
         return view('admin.payments');
