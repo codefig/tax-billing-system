@@ -158,6 +158,10 @@ class AdminController extends Controller
         return view('admin.payments');
     }
 
+    public function postPayments(Request $request) {
+        return "this is the post payment function";
+    }
+
     public function showPaymentHistory(){
         return view('admin.payment-history');
     }

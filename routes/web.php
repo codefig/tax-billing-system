@@ -43,6 +43,9 @@ Route::post('/admin/driver/find', 'Auth\AdminController@searchDriver')->name('ad
 
 //Search for driver using plate no record 
 Route::get('/admin/payments', 'Auth\AdminController@showPayments')->name('admin.payments.show');
+Route::post('/admin/payments', 'Auth\AdminController@postPayments')->name('admin.payments.add');
+
+
 Route::get('/admin/payments/history', 'Auth\AdminController@showPaymentHistory')->name('admin.payments.history');
 
 //Payment routes
