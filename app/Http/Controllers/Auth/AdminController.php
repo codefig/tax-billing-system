@@ -40,6 +40,7 @@ class AdminController extends Controller
             'owners_name' => 'required', 
             'drivers_name' => 'required',
             'engine_no' => 'required', 
+            'plate_no' =>  'required',
             'chassis_no' => 'required', 
             'licence_no' => 'required', 
             'car_description' => 'required', 
@@ -103,12 +104,56 @@ class AdminController extends Controller
             }
     }
 
-    public function showFoundDriver(Request $request){
-        return "this is the show found driver ";
-    }
 
     public function updateDriver(Request $request){
-        return view('admin.updatedriver');
+        // return "this is the update driver function";
+        $this->validate($request, [
+            'owners_name' => 'required', 
+            'drivers_name' => 'required',
+            'engine_no' => 'required', 
+            'plate_no' => 'required',
+            'chassis_no' => 'required', 
+            'licence_no' => 'required', 
+            'car_description' => 'required', 
+            'mobile_no' => 'required', 
+            'nationality' => 'required',
+            'state' => 'required',
+            'lga' => 'required', 
+        ]);
+
+        $user = User::find($request->_id);
+        
+        if($request->hasfile('photograph')){
+    
+            $image = $request->file('photograph');
+            $name = $image->getClientOriginalName();
+            $new_image_name = time() . '-driver-'. $name;
+
+            $image->move(public_path(). '/images/', $new_image_name);
+            $user->photograph = $new_image_name;
+
+        }
+            //Image was uploaded successfully. 
+            $user->owners_name = $request->owners_name;
+            $user->drivers_name = $request->drivers_name;
+            $user->engine_no = $request->engine_no;
+            $user->plate_no = $request->plate_no;
+            $user->chassis_no = $request->chassis_no;
+            $user->licence_no = $request->licence_no;
+            $user->car_description = $request->car_description;
+            $user->mobile_no = $request->mobile_no;
+            $user->nationality = $request->nationality;
+            $user->state = $request->state;
+            $user->lga = $request->lga;
+            $user->password = "";
+
+            $user->save();
+            $request->session()->flash('success_message', "The driver information has been updated Successfully!");
+            return redirect()->route('admin.driver.showUpdate');
+    }
+
+    public function showFoundDriver(){
+        return "this is the show drivers function";
     }
 
     public function showPayments(){

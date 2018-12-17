@@ -162,6 +162,14 @@
           </div>
           @endif
 
+
+
+          @if(Session::has('success_message'))
+          <div class='alert alert-success'>
+              <span> {{ Session::get('success_message') }}</span>
+          </div>
+          @endif
+
         </div>
         <!-- /.container-fluid -->
 

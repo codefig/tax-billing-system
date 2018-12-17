@@ -146,81 +146,81 @@
           @foreach ($user as $driver)
           {{-- <option value="{{ $driver->id }}">{{ $driver->drivers_name }}</option> --}}
           <img src="{{URL::to($driver->photograph)}}" alt="..." class="img-thumbnail" style="height:200px;width:200px;">
-            @endforeach
-          @endif
-
-          <form method="post" enctype="multipart/form-data">
+          
+          <form method="post" enctype="multipart/form-data" action="/admin/driver/update">
             <div class="form-group">
-
-              <label>Passport Image</label>
-              <input type="file" accept="image/*" enctype="multipart/form-data" name="photograph" id="photograph" class="form-control">
+                <label>Passport Image</label>
+                <input type="file" accept="image/*" enctype="multipart/form-data" name="photograph" id="photograph" class="form-control">
             </div>
 
             <div class="form-group">
-              <label>Car Owner Name</label>
-              <input type="text" class="form-control" id="owners_name" name="owners_name">
-            </div>
-
-            <div class="form-group">
-              <label>Driver Name </label>
-              <input type="text" class="form-control" id="drivers_name" name="drivers_name">
-            </div>
-
-            <div class="form-group">
-              <label>Engine Number</label>
-              <input type="text" class="form-control" id="engine_no" name="engine_no">
-            </div>
-
-            <div class="form-group">
-              <label>Plate Number</label>
-              <input type="text" class="form-control" id="plate_no" name="plate_no">
+                <label>Car Owner Name</label>
+                <input type="text" class="form-control" id="owners_name" name="owners_name" value="{{$driver->owners_name}}">
             </div>
             
             <div class="form-group">
-              <label>Chassis Number</label>
-              <input type="text" class="form-control" id="chassis_no" name="chassis_no">
+              <label>Driver Name </label>
+              <input type="text" class="form-control" id="drivers_name" name="drivers_name" value="{{$driver->drivers_name}}">
+            </div>
+            
+            <div class="form-group">
+                <label>Engine Number</label>
+              <input type="text" class="form-control" id="engine_no" name="engine_no" value="{{$driver->engine_no}}">
+            </div>
+            
+            <div class="form-group">
+              <label>Plate Number</label>
+              <input type="text" class="form-control" id="plate_no" name="plate_no" value="{{$driver->plate_no}}">
+            </div>
+            
+            <div class="form-group">
+                <label>Chassis Number</label>
+                <input type="text" class="form-control" id="chassis_no" name="chassis_no" value="{{$driver->chassis_no}}">
             </div>
 
             <div class="form-group">
-              <label>Licence Number</label>
-              <input type="text" class="form-control" id="licence_no" name="licence_no">
+                <label>Licence Number</label>
+              <input type="text" class="form-control" id="licence_no" name="licence_no" value="{{$driver->licence_no}}">
             </div>
-
+            
             <div class="form-group">
               <label>Car description</label>
-              <input type="text" class="form-control" name="car_description" id='car_description'>
+              <input type="text" class="form-control" name="car_description" id='car_description' value="{{$driver->car_description}}">
+            </div>
+            
+            <div class="form-group">
+                <label>Mobile Number</label>
+              <input type="text" class="form-control" id="mobile_no" name="mobile_no" value="{{$driver->mobile_no}}">
+            </div>
+            
+            <div class="form-group">
+                <label>Nationality</label>
+              <input type="text" class="form-control" id="nationality" name="nationality" value="{{$driver->nationality}}">
             </div>
 
             <div class="form-group">
-              <label>Mobile Number</label>
-              <input type="text" class="form-control" id="mobile_no" name="mobile_no">
+                <label>State</label>
+              <input type="text" class='form-control' id="state" name="state" value="{{$driver->state}}">
             </div>
-
-            <div class="form-group">
-              <label>Nationality</label>
-              <input type="text" class="form-control" id="nationality" name="nationality">
-            </div>
-
-            <div class="form-group">
-              <label>State</label>
-              <input type="text" class='form-control' id="state" name="state">
-            </div>
-
+            
             <div class="form-group">
               <label>Local Government Area</label>
-              <input type="text" class="form-control" id="lga" name="lga">
+              <input type="text" class="form-control" id="lga" name="lga" value="{{$driver->lga}}">
             </div>
 
+            <input type="hidden" name="_id" value="{{$driver->id}}">
+            @endforeach
+          @endif
             <div class="form-group">
-              <button type="submit" class="btn btn-primary">Add Record</button>
+              <button type="submit" class="btn btn-primary">Update Record</button>
               <input type="hidden" name="_token" value="{{Session::token()}}"
             </div>
-
-          </form>
-
-          @if (count($errors) > 0)
+            
+        </form>
+        
+        @if (count($errors) > 0)
           <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+              <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
               @foreach ($errors->all() as $error)
                   <li>{{ $error }}</li>
