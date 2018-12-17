@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Session;
+use App\Payments;
 
 class AdminController extends Controller
 {
@@ -159,7 +160,28 @@ class AdminController extends Controller
     }
 
     public function postPayments(Request $request) {
-        return "this is the post payment function";
+        // return "this is the post payment function";
+        $this->validate($request, [
+            'plate_no' => 'required', 
+            'amount' => 'required',
+            'type' => 'required', 
+            'comments' => 'required',
+        ]);
+        
+        $user = User::where('plate_no', $request->plate_no)->first();
+        if($user){
+            $payment = new Payments();
+            $payment->user_id = $user->id;
+            $payment->amount = $request->amount;
+            $payment->type = $request->type;
+            $payment->comments = $request->comments;
+            $payment->save();
+
+            $request->session()->flash('success_message', 'Payment has been made successfully!');
+            return redirect()->back();
+        }
+        $request->session()->flash('error_message', "Sorry, Plate Number is not linked to any account");
+        return redirect()->back();
     }
 
     public function showPaymentHistory(){

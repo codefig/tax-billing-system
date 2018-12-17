@@ -141,8 +141,10 @@
           <h1>Make Payment</h1>
           <hr>
 
-          <div class="form-group">
-            <label>Drivers Plate Number</label>
+          <form method="post" action="{{route('admin.payments.add')}}">
+
+            <div class="form-group">
+              <label>Drivers Plate Number</label>
             <input type="text" class="form-control" id="plate_no" name="plate_no">
           </div>
           
@@ -150,7 +152,7 @@
             <label>Amount</label>
             <input type="number" class="form-control" id="amount" name="amount" placeholder="N500.00">
           </div>
-
+          
           <div class="form-group">
             <label>Payment Type</label>
             <select id="type" name='type' class="form-control">
@@ -168,7 +170,25 @@
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Make Payment</button>
           </div>
+          <input type="hidden" name="_token" value="{{Session::token()}}">
+        </form>
 
+         
+        @if(Session::has('error_message'))
+        <br/>
+        <div class='alert alert-danger'>
+            <span> {{ Session::get('error_message') }}</span>
+        </div>
+        @endif
+
+
+
+        @if(Session::has('success_message'))
+        <div class='alert alert-success'>
+            <span> {{ Session::get('success_message') }}</span>
+        </div>
+        @endif
+        
         </div>
         <!-- /.container-fluid -->
 
