@@ -161,6 +161,11 @@
           </div>
 
           <div class="form-group">
+            <label>Remarks </label>
+            <input type="text" name="comments" id="comments" class="form-control">
+          </div>
+
+          <div class="form-group">
             <button type="submit" class="btn btn-primary">Make Payment</button>
           </div>
 
