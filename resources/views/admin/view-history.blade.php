@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Add Driver </title>
+    <title>SB Admin - Driver Record </title>
 
     <link href="{{URL::to('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -92,7 +92,7 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="{{route('admin.home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
@@ -132,50 +132,57 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="index.html">Payments</a>
+              <a href="{{route('admin.home')}}">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">History</li>
+            <li class="breadcrumb-item active">Found Driver Record</li>
           </ol>
 
           <!-- Page Content -->
-          <h1>Check Payments History</h1>
+          <h1>Payment History </h1>
           <hr>
-             
-          <form method="post" action="">
-            <div class="form-group">
-              <label>Plate Number</label>
-              <input type="text" class="form-control" id="plate_no" name="plate_no" placeholder="XVF-321-AG">
-            </div>
-
-            <div class="form-group">
-              <label>Payment Type</label>
-              <select class="form-control" id="type" name="type">
-                <option value="1">Daily Permit</option>
-                <option value="2">Monthly Permit</option>
-                <option value="3">Annual (Hackney Permit)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Get Payment History</button>
-            </div>
-            <input type="hidden" name="_token" value="{{Session::token()}}">
-          </form>
-
-          <ul>
+      
+          <div class="table-reponsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                        
+                            <th>Plate Number</th>
+                            <th>Driver Name</th>
+                            <th>Payment Type</th>
+                            <th>Amount</th>
+                            <th>Comment</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        @if(count($payments) > 0)
+                          @foreach($payments as $payment)
+                          <tbody>
+                            <tr>
+                              <td>{{$payment->user->plate_no}}</td>
+                              <td>{{$payment->user->drivers_name}}</td>
+                              <td>{{$payment->type}}</td>
+                              <td>{{$payment->amount}}</td>
+                              <td>{{$payment->comments}}</td>
+                              <td>{{$payment->created_at}}</td>
+                            </tr>
+                            
+                          @endforeach
+                        @endif
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+        </form>
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+              <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
               @foreach ($errors->all() as $error)
-              <li classs="alert alert-danger">{!! $error !!}</li>
+                  <li>{{ $error }}</li>
               @endforeach
             </ul>
-
-           
-          @if(Session::has('error_message'))
-          <br/>
-          <div class='alert alert-danger'>
-              <span> {{ Session::get('error_message') }}</span>
           </div>
           @endif
-
 
 
           @if(Session::has('success_message'))

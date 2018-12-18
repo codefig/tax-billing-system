@@ -187,4 +187,25 @@ class AdminController extends Controller
     public function showPaymentHistory(){
         return view('admin.payment-history');
     }
+
+    public function findPaymentHistory(Request $request){
+        $this->validate($request, [
+            'plate_no' =>'required', 
+            'type' => 'required', 
+        ]);
+
+        $user = User::where('plate_no', $request->plate_no)->first();
+        if($user){
+            $payments = Payments::whereRaw('user_id=' . $user->id . " and type='" . $request->type."'")->get();
+            if(count($payments) > 0){
+                return view('admin.view-history', compact('payments'));
+            }else{
+                $request->session()->flash('error_message', 'Sorry, No payments found for that account!');
+                return redirect()->back();
+            }
+        }else{
+            $request->session()->flash('error_message', 'Sorry, No vehicle record with that plate number!');
+            return redirect()->back();
+        }
+    }
 }

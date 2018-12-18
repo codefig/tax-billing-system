@@ -47,5 +47,6 @@ Route::post('/admin/payments', 'Auth\AdminController@postPayments')->name('admin
 
 
 Route::get('/admin/payments/history', 'Auth\AdminController@showPaymentHistory')->name('admin.payments.history');
+Route::post('/admin/payments/history', 'Auth\AdminController@findPaymentHistory')->name('admin.payments.history.find');
 
 //Payment routes
