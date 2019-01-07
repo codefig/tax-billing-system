@@ -91,38 +91,43 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('admin.home')}}">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('admin.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
-            <a class="dropdown-item" href="login.html">Login</a>
-            <a class="dropdown-item" href="register.html">Register</a>
-            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item active" href="blank.html">Blank Page</a>
-          </div>
-        </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="{{route('admin.driver.show')}}">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
+            <span>Add Driver</span></a>
         </li>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Update Driver</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.driver.showall')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>View All Drivers</span></a>
+      </li>
+
+
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="{{route('admin.payments.show')}}">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <span>Make Payment</span></a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.payments.history')}}">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Payment History</span></a>
+          </li>
       </ul>
 
       <div id="content-wrapper">
@@ -146,7 +151,7 @@
           @foreach ($user as $driver)
           {{-- <option value="{{ $driver->id }}">{{ $driver->drivers_name }}</option> --}}
           <img src="{{URL::to($driver->photograph)}}" alt="..." class="img-thumbnail" style="height:200px;width:200px;">
-          
+
           <form method="post" enctype="multipart/form-data" action="/admin/driver/update">
             <div class="form-group">
                 <label>Passport Image</label>
@@ -157,22 +162,22 @@
                 <label>Car Owner Name</label>
                 <input type="text" class="form-control" id="owners_name" name="owners_name" value="{{$driver->owners_name}}">
             </div>
-            
+
             <div class="form-group">
               <label>Driver Name </label>
               <input type="text" class="form-control" id="drivers_name" name="drivers_name" value="{{$driver->drivers_name}}">
             </div>
-            
+
             <div class="form-group">
                 <label>Engine Number</label>
               <input type="text" class="form-control" id="engine_no" name="engine_no" value="{{$driver->engine_no}}">
             </div>
-            
+
             <div class="form-group">
               <label>Plate Number</label>
               <input type="text" class="form-control" id="plate_no" name="plate_no" value="{{$driver->plate_no}}">
             </div>
-            
+
             <div class="form-group">
                 <label>Chassis Number</label>
                 <input type="text" class="form-control" id="chassis_no" name="chassis_no" value="{{$driver->chassis_no}}">
@@ -182,17 +187,17 @@
                 <label>Licence Number</label>
               <input type="text" class="form-control" id="licence_no" name="licence_no" value="{{$driver->licence_no}}">
             </div>
-            
+
             <div class="form-group">
               <label>Car description</label>
               <input type="text" class="form-control" name="car_description" id='car_description' value="{{$driver->car_description}}">
             </div>
-            
+
             <div class="form-group">
                 <label>Mobile Number</label>
               <input type="text" class="form-control" id="mobile_no" name="mobile_no" value="{{$driver->mobile_no}}">
             </div>
-            
+
             <div class="form-group">
                 <label>Nationality</label>
               <input type="text" class="form-control" id="nationality" name="nationality" value="{{$driver->nationality}}">
@@ -202,7 +207,7 @@
                 <label>State</label>
               <input type="text" class='form-control' id="state" name="state" value="{{$driver->state}}">
             </div>
-            
+
             <div class="form-group">
               <label>Local Government Area</label>
               <input type="text" class="form-control" id="lga" name="lga" value="{{$driver->lga}}">
@@ -215,9 +220,9 @@
               <button type="submit" class="btn btn-primary">Update Record</button>
               <input type="hidden" name="_token" value="{{Session::token()}}"
             </div>
-            
+
         </form>
-        
+
         @if (count($errors) > 0)
           <div class="alert alert-danger">
               <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -281,10 +286,10 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{URL::to('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{URL::to('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    
+
     <!-- Core plugin JavaScript-->
     <script src="{{URL::to('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-    
+
     <script src="{{URL::to('js/sb-admin.min.js')}}"></script>
 
   </body>

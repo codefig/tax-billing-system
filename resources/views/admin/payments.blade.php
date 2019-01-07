@@ -91,40 +91,44 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('admin.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Login Screens:</h6>
-            <a class="dropdown-item" href="login.html">Login</a>
-            <a class="dropdown-item" href="register.html">Register</a>
-            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-            <div class="dropdown-divider"></div>
-            <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item active" href="blank.html">Blank Page</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-        </li>
-      </ul>
 
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('admin.driver.show')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Add Driver</span></a>
+        </li>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Update Driver</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.driver.showall')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>View All Drivers</span></a>
+      </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('admin.payments.show')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Make Payment</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.payments.history')}}">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Payment History</span></a>
+          </li>
+      </ul>
       <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -147,12 +151,12 @@
               <label>Drivers Plate Number</label>
             <input type="text" class="form-control" id="plate_no" name="plate_no">
           </div>
-          
+
           <div class="form-group">
             <label>Amount</label>
             <input type="number" class="form-control" id="amount" name="amount" placeholder="N500.00">
           </div>
-          
+
           <div class="form-group">
             <label>Payment Type</label>
             <select id="type" name='type' class="form-control">
@@ -173,7 +177,7 @@
           <input type="hidden" name="_token" value="{{Session::token()}}">
         </form>
 
-         
+
         @if(Session::has('error_message'))
         <br/>
         <div class='alert alert-danger'>
@@ -188,7 +192,7 @@
             <span> {{ Session::get('success_message') }}</span>
         </div>
         @endif
-        
+
         </div>
         <!-- /.container-fluid -->
 
@@ -234,10 +238,10 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{URL::to('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{URL::to('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    
+
     <!-- Core plugin JavaScript-->
     <script src="{{URL::to('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-    
+
     <script src="{{URL::to('js/sb-admin.min.js')}}"></script>
 
   </body>

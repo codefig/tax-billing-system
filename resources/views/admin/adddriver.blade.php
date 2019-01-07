@@ -89,7 +89,6 @@
 
     <div id="wrapper">
 
-
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
