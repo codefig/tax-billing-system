@@ -44,6 +44,14 @@
 						</span>
 					</div>
 
+					<div class="wrap-input100 validate-input" data-validate= "John Doe">
+						<input class="input100" type="text" name="drivers_name" placeholder="Driver's Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input class="input100" type="password" name="password" placeholder="Password">
 						<input type='hidden' value="{{ Session::token() }}" name="_token"/>

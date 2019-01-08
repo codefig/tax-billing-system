@@ -25,10 +25,11 @@ class UserController extends Controller {
 	}
 
 	public function signupSubmit(Request $request) {
-		return "this is the form submit route";
+		return $request->all();
 	}
 
 	public function loginSubmit(Request $request) {
-		return "this is the login function ";
+		// return "this is the login function ";
+		return $request->all();
 	}
 }
