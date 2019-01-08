@@ -30,7 +30,7 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action="{{ route('login.post') }}">
 					<span class="login100-form-title">
 						Member Login
 					</span>
@@ -44,6 +44,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input type="hidden" name="_token" value="{{ Session::token() }}" />
 						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
