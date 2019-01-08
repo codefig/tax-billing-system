@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller {
 
 	//this Controller is for Unauthenticated Users;
-
 	public function __construct() {
 		$this->middleware('guest');
 	}
@@ -40,7 +39,8 @@ class UserController extends Controller {
 		$user->save();
 
 		// Auth::login($user);
-		return view('user.home');
+		return redirect()->route('user.home');
+		// return "user registered successfully";
 
 	}
 
