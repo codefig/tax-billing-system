@@ -92,7 +92,7 @@
 					<ul>
 						<li><a href="destination.html">Destination</a></li>
 						<li class="has-dropdown">
-							<a href="{{ rotue('signup') }}">Sign Up</a>
+							<a href="{{ route('signup') }}">Sign Up</a>
 
 						</li>
 						<li><a href="{{route('admin.login')}}">Admin Login</a></li>
