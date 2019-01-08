@@ -17,6 +17,7 @@ Route::get('/login', 'UserController@login')->name('login');
 Route::post('/login', 'UserController@loginSubmit')->name('login.post');
 Route::get('/signup', 'UserController@showSignup')->name('signup');
 Route::post('/signup', 'UserController@signupSubmit')->name('signup.post');
+Route::get('/home', 'Auth\UserController@home')->name('user.home');
 
 //Admin routes
 // Route::prefix('/admin')->group(function(){

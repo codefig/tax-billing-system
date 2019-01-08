@@ -40,7 +40,7 @@ class AdminController extends Controller {
 			'owners_name' => 'required',
 			'drivers_name' => 'required',
 			'engine_no' => 'required',
-			'plate_no' => 'required',
+			'plate_no' => 'required|unique:users,plate_no',
 			'chassis_no' => 'required',
 			'licence_no' => 'required',
 			'car_description' => 'required',

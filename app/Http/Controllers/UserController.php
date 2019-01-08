@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller {
 
@@ -27,7 +28,7 @@ class UserController extends Controller {
 
 	public function signupSubmit(Request $request) {
 		$this->validate($request, [
-			'plate_no' => 'required',
+			'plate_no' => 'required|unique:users,plate_no',
 			'drivers_name' => 'required',
 			'password' => 'required',
 		]);
@@ -35,8 +36,11 @@ class UserController extends Controller {
 		$user = new User();
 		$user->plate_no = $request->plate_no;
 		$user->drivers_name = $request->drivers_name;
-		$user->password = $request->password;
+		$user->password = Hash::make($request->password);
 		$user->save();
+
+		// Auth::login($user);
+		return view('user.home');
 
 	}
 
