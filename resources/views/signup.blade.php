@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -32,7 +32,7 @@
 
 				<form class="login100-form validate-form">
 					<span class="login100-form-title">
-						Member Login
+						Create Account
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -53,22 +53,18 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Login
+							Register
 						</button>
 					</div>
 
 					<div class="text-center p-t-12">
 						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
+						some errors </span>
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="{{ route('signup') }}">
-							Create your Account
+						<a class="txt2" href="{{ route('login') }}">
+							Login your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>

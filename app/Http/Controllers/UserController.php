@@ -4,21 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
-{
-    
-    //this Controller is for Unauthenticated Users;
+class UserController extends Controller {
 
-    public function __construct(){
-        $this->middleware('guest');
-    }
+	//this Controller is for Unauthenticated Users;
 
+	public function __construct() {
+		$this->middleware('guest');
+	}
 
-    public function login(Request $request){
-        return view('login');
-    }
+	public function login(Request $request) {
+		return view('login');
+	}
 
-    public function index(Request $request){
-        return view('welcome');
-    }
+	public function index(Request $request) {
+		return view('welcome');
+	}
+
+	public function showSignup() {
+		return view('signup');
+	}
 }

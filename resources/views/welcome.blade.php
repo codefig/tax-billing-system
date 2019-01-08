@@ -8,7 +8,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Traveler &mdash; Free Website Template, Free HTML5 Template by FreeHTML5.co</title>
+	<title>TAXMANAGER</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -26,7 +26,7 @@
 	<meta name="twitter:card" content="" />
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -49,6 +49,22 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<style>
+		#gtco-header {
+			background-image: url('images/bus.jpg') !important;
+		}
+
+		.gtco-cover{
+				background-image:url('');
+			}
+		.gtco-cover-md{
+			background-image:url('');
+		}
+		.gtco-cover-sm{
+			background-image:url('images/Yutong-bus.jpg') !important;
+		}
+	</style>
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -58,220 +74,68 @@
 
 	</head>
 	<body>
-		
+
 	<div class="gtco-loader"></div>
-	
+
 	<div id="page">
 
-	
+
 	<!-- <div class="page-inner"> -->
 	<nav class="gtco-nav" role="navigation">
 		<div class="gtco-container">
-			
+
 			<div class="row">
 				<div class="col-sm-4 col-xs-12">
-					<div id="gtco-logo"><a href="index.html">Traveler <em>.</em></a></div>
+					<div id="gtco-logo"><a href="index.html">TAX MANAGER <em>.</em></a></div>
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
 						<li><a href="destination.html">Destination</a></li>
 						<li class="has-dropdown">
-							<a href="#">Travel</a>
-							<ul class="dropdown">
-								<li><a href="#">Europe</a></li>
-								<li><a href="#">Asia</a></li>
-								<li><a href="#">America</a></li>
-								<li><a href="#">Canada</a></li>
-							</ul>
+							<a href="{{ rotue('signup') }}">Sign Up</a>
+
 						</li>
 						<li><a href="{{route('admin.login')}}">Admin Login</a></li>
 						<li><a href="{{route('login')}}">Login</a></li>
-					</ul>	
+					</ul>
 				</div>
 			</div>
-			
+
 		</div>
 	</nav>
-	
+
 	<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(images/img_bg_2.jpg)">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-12 col-md-offset-0 text-left">
-					
+
 
 					<div class="row row-mt-15em">
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-							<h1>Planing Trip To Anywhere in The World?</h1>	
+							<h1>Managing Transport Taxes and Revenues on Campus</h1>
 						</div>
 						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
-							<div class="form-wrap">
-								<div class="tab">
-									
-									<div class="tab-content">
-										<div class="tab-content-inner active" data-content="signup">
-											<h3>Book Your Trip</h3>
-											<form action="#">
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="fullname">Your Name</label>
-														<input type="text" id="fullname" class="form-control">
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="activities">Activities</label>
-														<select name="#" id="activities" class="form-control">
-															<option value="">Activities</option>
-															<option value="">Hiking</option>
-															<option value="">Caving</option>
-															<option value="">Swimming</option>
-														</select>
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="destination">Destination</label>
-														<select name="#" id="destination" class="form-control">
-															<option value="">Philippines</option>
-															<option value="">USA</option>
-															<option value="">Australia</option>
-															<option value="">Singapore</option>
-														</select>
-													</div>
-												</div>
-												
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="date-start">Date Travel</label>
-														<input type="text" id="date-start" class="form-control">
-													</div>
-												</div>
 
-												<div class="row form-group">
-													<div class="col-md-12">
-														<input type="submit" class="btn btn-primary btn-block" value="Submit">
-													</div>
-												</div>
-											</form>	
-										</div>
-
-										
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
-							
-					
+
+
 				</div>
 			</div>
 		</div>
 	</header>
-	
-	<div class="gtco-section">
-		<div class="gtco-container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-					<h2>Most Popular Destination</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			<div class="row">
-
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_1.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="images/img_1.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>New York, USA</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="btn btn-primary">Schedule a Trip</span></p>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_2.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="images/img_2.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Seoul, South Korea</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="btn btn-primary">Schedule a Trip</span></p>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_3.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="images/img_3.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Paris, France</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="btn btn-primary">Schedule a Trip</span></p>
-						</div>
-					</a>
-				</div>
 
 
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_4.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="images/img_4.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Sydney, Australia</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="btn btn-primary">Schedule a Trip</span></p>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_5.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="images/img_5.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Greece, Europe</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="btn btn-primary">Schedule a Trip</span></p>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="images/img_6.jpg" class="fh5co-card-item image-popup">
-						<figure>
-							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="images/img_6.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Spain, Europe</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-							<p><span class="btn btn-primary">Schedule a Trip</span></p>
-						</div>
-					</a>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	
 	<div id="gtco-features">
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
 					<h2>How It Works</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<p>We Help to Ensure that Vehicles navigating the campus premises are well documented, and payable taxes are
+					electronically recorded
+				</p>
 				</div>
 			</div>
 			<div class="row">
@@ -280,8 +144,8 @@
 						<span class="icon">
 							<i>1</i>
 						</span>
-						<h3>Lorem ipsum dolor sit amet</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+						<h3>Register your Vehicle and Driver Record</h3>
+						<p>Vehicle and Driver information are been recorded for the first time</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6">
@@ -289,8 +153,8 @@
 						<span class="icon">
 							<i>2</i>
 						</span>
-						<h3>Consectetur adipisicing elit</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+						<h3>Make Obtainable Payment</h3>
+						<p>Payment record are saved to your personal profile, Vehicle ownership information are also recorded electronically</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6">
@@ -298,11 +162,11 @@
 						<span class="icon">
 							<i>3</i>
 						</span>
-						<h3>Dignissimos asperiores vitae</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+						<h3>Move without Harrassments</h3>
+						<p>No more long waiting at security checkpoints, security personnels view your information and verifies your car identity€</p>
 					</div>
 				</div>
-				
+
 
 			</div>
 		</div>
@@ -314,8 +178,8 @@
 		<div class="gtco-container text-center">
 			<div class="display-t">
 				<div class="display-tc">
-					<h1>We have high quality services that you will surely love!</h1>
-				</div>	
+					<h1>Ensuring a documented directory for campus drivers</h1>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -325,45 +189,45 @@
 
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-					<h2>Our Success</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<h2>Documentation</h2>
+					<p>For the commercial bus owners, drivers and bike-men. We want to ensure we help keep track of revenues gotten from riders permits, and also ensure car security on campus</p>
 				</div>
 			</div>
 
 			<div class="row">
-				
+
 				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
 					<div class="feature-center">
 						<span class="counter js-counter" data-from="0" data-to="196" data-speed="5000" data-refresh-interval="50">1</span>
-						<span class="counter-label">Destination</span>
+						<span class="counter-label">Commercial Bikes</span>
 
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
 					<div class="feature-center">
-						<span class="counter js-counter" data-from="0" data-to="97" data-speed="5000" data-refresh-interval="50">1</span>
-						<span class="counter-label">Hotels</span>
+						<span class="counter js-counter" data-from="0" data-to="107" data-speed="5000" data-refresh-interval="50">1</span>
+						<span class="counter-label">Commercial Buses</span>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
 					<div class="feature-center">
-						<span class="counter js-counter" data-from="0" data-to="12402" data-speed="5000" data-refresh-interval="50">1</span>
-						<span class="counter-label">Travelers</span>
+						<span class="counter js-counter" data-from="0" data-to="305" data-speed="5000" data-refresh-interval="50">1</span>
+						<span class="counter-label">Personal Vehicles</span>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
 					<div class="feature-center">
 						<span class="counter js-counter" data-from="0" data-to="12202" data-speed="5000" data-refresh-interval="50">1</span>
-						<span class="counter-label">Happy Customer</span>
+						<span class="counter-label">Monthly Visits</span>
 
 					</div>
 				</div>
-					
+
 			</div>
 		</div>
 	</div>
 
-	
+
 
 	<div id="gtco-subscribe">
 		<div class="gtco-container">
@@ -444,8 +308,8 @@
 			<div class="row copyright">
 				<div class="col-md-12">
 					<p class="pull-left">
-						<small class="block">&copy; 2018 Tax Management. All Rights Reserved.</small> 
-						
+						<small class="block">&copy; 2018 Tax Management. All Rights Reserved.</small>
+
 					</p>
 					<p class="pull-right">
 						<ul class="gtco-social-icons pull-right">
@@ -467,7 +331,7 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -487,10 +351,10 @@
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
-	
+
 	<!-- Datepicker -->
 	<script src="js/bootstrap-datepicker.min.js"></script>
-	
+
 
 	<!-- Main -->
 	<script src="js/main.js"></script>

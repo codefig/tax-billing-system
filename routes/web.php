@@ -14,6 +14,7 @@
 //User routes
 Route::get('/', 'UserController@index')->name('index');
 Route::get('/login', 'UserController@login')->name('login');
+Route::get('/signup', 'UserController@showSignup')->name('signup');
 
 //Admin routes
 // Route::prefix('/admin')->group(function(){
