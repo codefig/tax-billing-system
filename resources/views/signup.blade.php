@@ -68,8 +68,11 @@
 					</div>
 
 					<div class="text-center p-t-12">
-						<span class="txt1">
-						some errors </span>
+						<ul>
+            		@foreach ($errors->all() as $error)
+           			 <li classs="alert alert-danger">{!! $error !!}</li>
+           			@endforeach
+          </ul>
 					</div>
 
 					<div class="text-center p-t-136">

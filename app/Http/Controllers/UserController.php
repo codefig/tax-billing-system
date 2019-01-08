@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller {
@@ -25,7 +26,18 @@ class UserController extends Controller {
 	}
 
 	public function signupSubmit(Request $request) {
-		return $request->all();
+		$this->validate($request, [
+			'plate_no' => 'required',
+			'drivers_name' => 'required',
+			'password' => 'required',
+		]);
+
+		$user = new User();
+		$user->plate_no = $request->plate_no;
+		$user->drivers_name = $request->drivers_name;
+		$user->password = $request->password;
+		$user->save();
+
 	}
 
 	public function loginSubmit(Request $request) {
