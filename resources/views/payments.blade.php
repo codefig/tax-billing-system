@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Driver Dashboard</title>
-    <!-- Bootstrap core CSS-->
+    <title>SB Admin - Payments </title>
+
     <link href="{{URL::to('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
@@ -22,14 +22,13 @@
     <!-- Page level plugin CSS-->
     <link href="{{URL::to('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
 
-
   </head>
 
   <body id="page-top">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Driver</a>
+      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -81,7 +80,7 @@
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ route('user.logout') }}" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
       </ul>
@@ -93,24 +92,33 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('user.home') }}">
+          <a class="nav-link" href="{{ route('admin.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('admin.driver.show')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Add Driver</span></a>
+        </li>
 
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('user.profile.get')}}">
+        <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Update Profile</span></a>
+          <span>Update Driver</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.driver.showall')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>View All Drivers</span></a>
       </li>
 
 
-
         <li class="nav-item">
-          <a class="nav-link" href="{{route('user.payments.get')}}">
+          <a class="nav-link" href="{{route('admin.payments.show')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Make Payment</span></a>
         </li>
@@ -120,15 +128,7 @@
               <i class="fas fa-fw fa-table"></i>
               <span>Payment History</span></a>
           </li>
-
-
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('user.logout')}}">
-              <i class="fas fa-fw fa-table"></i>
-              <span>Logout</span></a>
-          </li>
       </ul>
-
       <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -136,61 +136,71 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Driver</a>
+              <a href="index.html">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Homepage</li>
+            <li class="breadcrumb-item active">Payments</li>
           </ol>
 
-          <!-- Icon Cards-->
-          <div class="row">
+          <!-- Page Content -->
+          <h1>Make Payment</h1>
+          <hr>
 
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-shopping-cart"></i>
-                  </div>
-                  <div class="mr-5">Update Profile</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="{{ route('user.profile.get') }}">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-danger o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-life-ring"></i>
-                  </div>
-                  <div class="mr-5">View Payment History</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="{{ route('admin.payments.history') }}">
-                  <span class="float-left">View Details</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
+          <form method="post" action="{{route('admin.payments.add')}}">
+
+            <div class="form-group">
+              <label>Drivers Plate Number</label>
+            <input type="text" class="form-control" id="plate_no" name="plate_no">
           </div>
 
+          <div class="form-group">
+            <label>Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount" placeholder="N500.00">
+          </div>
 
-          @if(Auth::user()->is_updated != 1)
-           <div class="alert alert-danger">
-              <strong>Note!</strong>  Please Update your profile information to continue ...
-           </div>
-           @endif
+          <div class="form-group">
+            <label>Payment Type</label>
+            <select id="type" name='type' class="form-control">
+              <option value="1">Daily Permit</option>
+              <option value="2">Monthly Permit</option>
+              <option value="3">Annual (Hackney Permit)</option>
+            </select>
+          </div>
 
+          <div class="form-group">
+            <label>Remarks </label>
+            <input type="text" name="comments" id="comments" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Make Payment</button>
+          </div>
+          <input type="hidden" name="_token" value="{{Session::token()}}">
+        </form>
+
+
+        @if(Session::has('error_message'))
+        <br/>
+        <div class='alert alert-danger'>
+            <span> {{ Session::get('error_message') }}</span>
+        </div>
+        @endif
+
+
+
+        @if(Session::has('success_message'))
+        <div class='alert alert-success'>
+            <span> {{ Session::get('success_message') }}</span>
+        </div>
+        @endif
+
+        </div>
+        <!-- /.container-fluid -->
 
         <!-- Sticky Footer -->
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span></span>
+              <span>Copyright © Your Website 2018</span>
             </div>
           </div>
         </footer>
@@ -219,15 +229,11 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="{{route('user.logout')}}">Logout</a>
+            <a class="btn btn-primary" href="{{ route('user.logout') }}">Logout</a>
           </div>
         </div>
       </div>
     </div>
-
-
-
-    <!-- Custom scripts for all pages-->
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{URL::to('vendor/jquery/jquery.min.js')}}"></script>
@@ -237,6 +243,7 @@
     <script src="{{URL::to('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <script src="{{URL::to('js/sb-admin.min.js')}}"></script>
+
   </body>
 
 </html>

@@ -75,4 +75,12 @@ class UserController extends Controller {
 		$request->session()->flash('success_message', "The driver information has been updated Successfully!");
 		return redirect()->back();
 	}
+
+	public function showPayments() {
+		return view('payments');
+	}
+
+	publict function postMakePayments(){
+		return "this is th post function for payments";
+	}
 }
