@@ -17,6 +17,18 @@ class UserController extends Controller {
 		return view('login');
 	}
 
+	public function loginSubmit(Request $request) {
+		$this->validate($request, [
+			'plate_no' => 'required',
+			'password' => 'required',
+		]);
+		if (Auth::attempt(['plate_no' => $request->plate_no, 'password' => $password])) {
+			return redirect()->route('user.home');
+		} else {
+			return redirect()->back();
+		}
+	}
+
 	public function index(Request $request) {
 		return view('welcome');
 	}
@@ -42,10 +54,5 @@ class UserController extends Controller {
 		return redirect()->route('user.home');
 		// return "user registered successfully";
 
-	}
-
-	public function loginSubmit(Request $request) {
-		// return "this is the login function ";
-		return $request->all();
 	}
 }
