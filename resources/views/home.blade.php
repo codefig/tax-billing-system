@@ -178,10 +178,12 @@
             </div>
           </div>
 
-         <div class="alert alert-danger">
 
-           <strong>Note!</strong>  Please Update your profile information to continue ...
-         </div>
+          @if(Auth::user()->is_updated != 1)
+           <div class="alert alert-danger">
+              <strong>Note!</strong>  Please Update your profile information to continue ...
+           </div>
+           @endif
 
 
         <!-- Sticky Footer -->
@@ -217,7 +219,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="{{route('admin.logout')}}">Logout</a>
+            <a class="btn btn-primary" href="{{route('user.logout')}}">Logout</a>
           </div>
         </div>
       </div>

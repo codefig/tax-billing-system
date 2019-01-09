@@ -44,13 +44,13 @@ class UserController extends Controller {
 			'plate_no' => 'required|unique:users,plate_no',
 			'drivers_name' => 'required',
 			'password' => 'required',
-			'is_updated' => 0,
 		]);
 
 		$user = new User();
 		$user->plate_no = $request->plate_no;
 		$user->drivers_name = $request->drivers_name;
 		$user->password = Hash::make($request->password);
+		$user->is_updated = 0;
 		$user->save();
 
 		Auth::login($user);
