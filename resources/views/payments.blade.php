@@ -92,42 +92,12 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('admin.home') }}">
+          <a class="nav-link" href="{{ route('user.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('admin.driver.show')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Add Driver</span></a>
-        </li>
-
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Update Driver</span></a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.driver.showall')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>View All Drivers</span></a>
-      </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('admin.payments.show')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Make Payment</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.payments.history')}}">
-              <i class="fas fa-fw fa-table"></i>
-              <span>Payment History</span></a>
-          </li>
       </ul>
       <div id="content-wrapper">
 
