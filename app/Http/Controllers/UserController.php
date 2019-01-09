@@ -44,6 +44,7 @@ class UserController extends Controller {
 			'plate_no' => 'required|unique:users,plate_no',
 			'drivers_name' => 'required',
 			'password' => 'required',
+			'is_updated' => 0,
 		]);
 
 		$user = new User();
