@@ -99,11 +99,6 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('admin.driver.show')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Add Driver</span></a>
-        </li>
 
       </li>
       <li class="nav-item">
