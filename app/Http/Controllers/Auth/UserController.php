@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
+use App\Payments;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -80,7 +81,29 @@ class UserController extends Controller {
 		return view('payments');
 	}
 
-	publict function postMakePayments(){
-		return "this is th post function for payments";
+	public function postPayments(Request $request) {
+
+		$this->validate($request, [
+			'amount' => 'required',
+			'type' => 'required',
+			'comments' => 'required',
+			'card_no' => 'required',
+			'cvv' => 'required',
+			'pin' => 'required',
+		]);
+		// return "ready to post";
+
+		$user = Auth::user();
+		if ($user) {
+			$payment = new Payments();
+			$payment->user_id = $user->id;
+			$payment->amount = $request->amount;
+			$payment->type = $request->type;
+			$payment->comments = $request->comments;
+			$payment->save();
+
+			$request->session()->flash('success_message', 'Payment has been made successfully!');
+			return redirect()->back();
+		}
 	}
 }

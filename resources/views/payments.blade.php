@@ -177,7 +177,7 @@
           </div>
 
           <div class="form-group">
-            <label>Remarks </label>
+            <label>Comments </label>
             <input type="text" name="comments" id="comments" class="form-control">
           </div>
 
@@ -188,14 +188,24 @@
         </form>
 
 
+          @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+
+
         @if(Session::has('error_message'))
         <br/>
         <div class='alert alert-danger'>
             <span> {{ Session::get('error_message') }}</span>
         </div>
         @endif
-
-
 
         @if(Session::has('success_message'))
         <div class='alert alert-success'>
