@@ -104,13 +104,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Update Driver</span></a>
+          <span>Update Profile</span></a>
       </li>
-       <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.driver.showall')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>View All Drivers</span></a>
-      </li>
+
 
 
         <li class="nav-item">
