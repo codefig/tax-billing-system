@@ -19,6 +19,12 @@ Route::get('/signup', 'UserController@showSignup')->name('signup');
 Route::post('/signup', 'UserController@signupSubmit')->name('signup.post');
 Route::get('/home', 'Auth\UserController@home')->name('user.home');
 Route::get('/logout', 'Auth\UserController@logout')->name('user.logout');
+
+Route::get('/profile', 'Auth\UserController@showProfile')->name('user.profile.get');
+Route::post('/profile', 'Auth\UserController@updateProfile')->name('user.profile.post');
+
+Route::get('/payments', 'Auth\UserController@showPayments')->name('user.payments.get');
+Route::post('/payments', 'Auth\UserController@postPayments')->name('user.payments.post');
 //Admin routes
 // Route::prefix('/admin')->group(function(){
 // });

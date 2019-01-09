@@ -93,7 +93,7 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('admin.home') }}">
+          <a class="nav-link" href="{{ route('user.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
@@ -102,7 +102,7 @@
 
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
+        <a class="nav-link" href="{{route('user.profile.get')}}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Update Profile</span></a>
       </li>
@@ -152,7 +152,7 @@
                   </div>
                   <div class="mr-5">Update Profile</div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="{{ route('admin.driver.showUpdate') }}">
+                <a class="card-footer text-white clearfix small z-1" href="{{ route('user.profile.get') }}">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
@@ -179,7 +179,7 @@
           </div>
 
          <div class="alert alert-danger">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
            <strong>Note!</strong>  Please Update your profile information to continue ...
          </div>
 
