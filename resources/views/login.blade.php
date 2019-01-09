@@ -45,7 +45,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input type="hidden" name="_token" value="{{ Session::token() }}" />
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -59,12 +59,11 @@
 					</div>
 
 					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
+						<ul>
+							@foreach ($errors->all() as $error)
+           			           <li classs="alert alert-danger">{!! $error !!}</li>
+           			        @endforeach
+						</ul>
 					</div>
 
 					<div class="text-center p-t-136">

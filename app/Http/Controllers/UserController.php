@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,15 +19,16 @@ class UserController extends Controller {
 	}
 
 	public function loginSubmit(Request $request) {
+		// return "welcome to the login function";
 		$this->validate($request, [
 			'plate_no' => 'required',
 			'password' => 'required',
 		]);
-		if (Auth::attempt(['plate_no' => $request->plate_no, 'password' => $password])) {
+
+		if (Auth::attempt(['plate_no' => $request->plate_no, 'password' => $request->password])) {
 			return redirect()->route('user.home');
-		} else {
-			return redirect()->back();
 		}
+		return redirect()->back();
 	}
 
 	public function index(Request $request) {
@@ -50,9 +52,8 @@ class UserController extends Controller {
 		$user->password = Hash::make($request->password);
 		$user->save();
 
-		// Auth::login($user);
+		Auth::login($user);
 		return redirect()->route('user.home');
-		// return "user registered successfully";
 
 	}
 }

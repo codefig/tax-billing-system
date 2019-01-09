@@ -81,7 +81,7 @@
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="{{ route('user.logout') }}" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
       </ul>
@@ -128,6 +128,13 @@
             <a class="nav-link" href="{{route('admin.payments.history')}}">
               <i class="fas fa-fw fa-table"></i>
               <span>Payment History</span></a>
+          </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('user.logout')}}">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Logout</span></a>
           </li>
       </ul>
 
