@@ -69,7 +69,6 @@ class UserController extends Controller {
 		$user->nationality = $request->nationality;
 		$user->state = $request->state;
 		$user->lga = $request->lga;
-		$user->password = "";
 		$user->is_updated = 1;
 
 		$user->save();
