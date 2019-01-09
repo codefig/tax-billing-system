@@ -145,16 +145,26 @@
           <h1>Make Payment</h1>
           <hr>
 
-          <form method="post" action="{{route('admin.payments.add')}}">
-
-            <div class="form-group">
-              <label>Drivers Plate Number</label>
-            <input type="text" class="form-control" id="plate_no" name="plate_no">
-          </div>
+          <form method="post" action="{{route('user.payments.post')}}">
 
           <div class="form-group">
             <label>Amount</label>
             <input type="number" class="form-control" id="amount" name="amount" placeholder="N500.00">
+          </div>
+
+          <div class="form-group">
+            <label>Card Number </label>
+            <input class="form-control" type="text" name="card_no" id-"card_no" placeholder="12244">
+          </div>
+
+          <div class="form-group">
+            <label>CVV</label>
+            <input class="form-control" type="number" name="cvv" id="cvv" placeholder="433">
+          </div>
+
+          <div class="form-group">
+            <label>PIN</label>
+            <input type="text" class="form-control" id="pin" name="pin" placeholder="PIN">
           </div>
 
           <div class="form-group">
