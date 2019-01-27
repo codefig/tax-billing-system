@@ -106,4 +106,9 @@ class UserController extends Controller {
 			return redirect()->back();
 		}
 	}
+
+	public function showPaymentsHistory() {
+		$payments = Payments::where('user_id', Auth::id())->get();
+		return $payments;
+	}
 }
