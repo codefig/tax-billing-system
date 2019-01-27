@@ -25,6 +25,8 @@ Route::post('/profile', 'Auth\UserController@updateProfile')->name('user.profile
 
 Route::get('/payments', 'Auth\UserController@showPayments')->name('user.payments.get');
 Route::post('/payments', 'Auth\UserController@postPayments')->name('user.payments.post');
+
+Route::get('/history', 'Auth\UserController@showPaymentsHistory')->name('user.payments.history');
 //Admin routes
 // Route::prefix('/admin')->group(function(){
 // });

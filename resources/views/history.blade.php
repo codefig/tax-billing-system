@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Payments </title>
+    <title>SB Admin - Driver Record </title>
 
     <link href="{{URL::to('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -80,7 +80,7 @@
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ route('user.logout') }}" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
       </ul>
@@ -92,13 +92,44 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('user.home') }}">
+          <a class="nav-link" href="{{ route('admin.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('admin.driver.show')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Add Driver</span></a>
+        </li>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Update Driver</span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.driver.showall')}}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>View All Drivers</span></a>
+      </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('admin.payments.show')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Make Payment</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.payments.history')}}">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Payment History</span></a>
+          </li>
       </ul>
+
       <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -106,61 +137,50 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="index.html">Dashboard</a>
+              <a href="{{route('admin.home')}}">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Payments</li>
+            <li class="breadcrumb-item active">Found Driver Record</li>
           </ol>
 
           <!-- Page Content -->
-          <h1>Make Payment</h1>
+          <h1>Payment History </h1>
           <hr>
 
-          <form method="post" action="{{route('user.payments.post')}}">
+          <div class="table-reponsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
 
-          <div class="form-group">
-            <label>Amount</label>
-            <input type="number" class="form-control" id="amount" name="amount" placeholder="N500.00">
-          </div>
+                            <th>Plate Number</th>
+                            <th>Driver Name</th>
+                            <th>Payment Type</th>
+                            <th>Amount</th>
+                            <th>Comment</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        @if(count($payments) > 0)
+                          @foreach($payments as $payment)
+                          <tbody>
+                            <tr>
+                              <td>{{$payment->user->plate_no}}</td>
+                              <td>{{$payment->user->drivers_name}}</td>
+                              <td>{{$payment->type}}</td>
+                              <td>{{$payment->amount}}</td>
+                              <td>{{$payment->comments}}</td>
+                              <td>{{$payment->created_at}}</td>
+                            </tr>
 
-          <div class="form-group">
-            <label>Card Number </label>
-            <input class="form-control" type="text" name="card_no" id-"card_no" placeholder="12244">
-          </div>
-
-          <div class="form-group">
-            <label>CVV</label>
-            <input class="form-control" type="number" name="cvv" id="cvv" placeholder="433">
-          </div>
-
-          <div class="form-group">
-            <label>PIN</label>
-            <input type="text" class="form-control" id="pin" name="pin" placeholder="PIN">
-          </div>
-
-          <div class="form-group">
-            <label>Payment Type</label>
-            <select id="type" name='type' class="form-control">
-              <option value="1">Daily Permit</option>
-              <option value="2">Monthly Permit</option>
-              <option value="3">Annual (Hackney Permit)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Comments </label>
-            <input type="text" name="comments" id="comments" class="form-control">
-          </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Make Payment</button>
-          </div>
-          <input type="hidden" name="_token" value="{{Session::token()}}">
+                          @endforeach
+                        @endif
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
         </form>
-
-
-          @if (count($errors) > 0)
+        @if (count($errors) > 0)
           <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+              <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
               @foreach ($errors->all() as $error)
                   <li>{{ $error }}</li>
@@ -170,18 +190,11 @@
           @endif
 
 
-        @if(Session::has('error_message'))
-        <br/>
-        <div class='alert alert-danger'>
-            <span> {{ Session::get('error_message') }}</span>
-        </div>
-        @endif
-
-        @if(Session::has('success_message'))
-        <div class='alert alert-success'>
-            <span> {{ Session::get('success_message') }}</span>
-        </div>
-        @endif
+          @if(Session::has('success_message'))
+          <div class='alert alert-success'>
+              <span> {{ Session::get('success_message') }}</span>
+          </div>
+          @endif
 
         </div>
         <!-- /.container-fluid -->
@@ -219,7 +232,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="{{ route('user.logout') }}">Logout</a>
+            <a class="btn btn-primary" href="login.html">Logout</a>
           </div>
         </div>
       </div>
