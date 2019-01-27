@@ -9,8 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Driver Record </title>
-
+    <title>Driver Dashboard</title>
+    <!-- Bootstrap core CSS-->
     <link href="{{URL::to('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
@@ -22,13 +22,14 @@
     <!-- Page level plugin CSS-->
     <link href="{{URL::to('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
 
+
   </head>
 
   <body id="page-top">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand mr-1" href="index.html">Driver</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -80,7 +81,7 @@
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="{{ route('user.logout') }}" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
       </ul>
@@ -92,54 +93,51 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ route('admin.home') }}">
+          <a class="nav-link" href="{{ route('user.home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('admin.driver.show')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Add Driver</span></a>
-        </li>
 
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.driver.showUpdate')}}">
+        <a class="nav-link" href="{{route('user.profile.get')}}">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Update Driver</span></a>
+          <span>Update Profile</span></a>
       </li>
-       <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.driver.showall')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>View All Drivers</span></a>
-      </li>
+
 
 
         <li class="nav-item">
-          <a class="nav-link" href="{{route('admin.payments.show')}}">
+          <a class="nav-link" href="{{route('user.payments.get')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Make Payment</span></a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.payments.history')}}">
+            <a class="nav-link" href="{{route('user.payments.history')}}">
               <i class="fas fa-fw fa-table"></i>
               <span>Payment History</span></a>
+          </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('user.logout')}}">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Logout</span></a>
           </li>
       </ul>
 
       <div id="content-wrapper">
 
         <div class="container-fluid">
-
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="{{route('admin.home')}}">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Found Driver Record</li>
+            <li class="breadcrumb-item active">My Payment History</li>
           </ol>
 
           <!-- Page Content -->

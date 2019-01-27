@@ -109,6 +109,6 @@ class UserController extends Controller {
 
 	public function showPaymentsHistory() {
 		$payments = Payments::where('user_id', Auth::id())->get();
-		return $payments;
+		return view('history', compact('payments'));
 	}
 }
