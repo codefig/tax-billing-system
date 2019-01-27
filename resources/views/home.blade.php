@@ -116,7 +116,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.payments.history')}}">
+            <a class="nav-link" href="{{route('user.payments.history')}}">
               <i class="fas fa-fw fa-table"></i>
               <span>Payment History</span></a>
           </li>
@@ -168,7 +168,7 @@
                   </div>
                   <div class="mr-5">View Payment History</div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="{{ route('admin.payments.history') }}">
+                <a class="card-footer text-white clearfix small z-1" href="{{ route('user.payments.history') }}">
                   <span class="float-left">View Details</span>
                   <span class="float-right">
                     <i class="fas fa-angle-right"></i>
