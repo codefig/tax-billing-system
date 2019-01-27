@@ -163,7 +163,7 @@
                             <tr>
                               <td>{{$payment->user->plate_no}}</td>
                               <td>{{$payment->user->drivers_name}}</td>
-                              <td>{{$payment->type}}</td>
+                              <td>{{$payment->type()}}</td>
                               <td>{{$payment->amount}}</td>
                               <td>{{$payment->comments}}</td>
                               <td>{{$payment->created_at}}</td>
