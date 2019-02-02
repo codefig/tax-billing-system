@@ -16,8 +16,8 @@
     <!-- Custom fonts for this template-->
     <link href="{{URL::to('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template-->
-    <link href="{{URL::to("css/sb-admin.css")}}" rel="stylesheet">
+<!-- Custom styles for this template-->
+    <link href="{{URL::to("css/sb-admin-new.css")}}" rel="stylesheet">
 
     <!-- Page level plugin CSS-->
     <link href="{{URL::to('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
@@ -28,7 +28,9 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+
+
+           <a class="navbar-brand mr-1" href="index.html">Administrator</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>

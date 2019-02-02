@@ -17,7 +17,7 @@
     <link href="{{URL::to('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="{{URL::to("css/sb-admin.css")}}" rel="stylesheet">
+    <link href="{{URL::to("css/sb-admin-new.css")}}" rel="stylesheet">
 
     <!-- Page level plugin CSS-->
     <link href="{{URL::to('vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">

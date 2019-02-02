@@ -18,7 +18,8 @@
     <link href="{{URL::to('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template-->
-    <link href="{{URL::to("css/sb-admin.css")}}" rel="stylesheet">
+   <!-- Custom styles for this template-->
+    <link href="{{URL::to("css/sb-admin-new.css")}}" rel="stylesheet">
 
   </head>
 
@@ -43,7 +44,7 @@
                 <label for="inputPassword">Password</label>
               </div>
             </div>
-           
+
             <input  class="btn btn-primary btn-block" type="submit" id="submitBtn" value="Login">
             {{-- <a class="btn btn-primary btn-block" href="index.html">Login</a> --}}
             <input type='hidden' name="_token" value="{{Session::token()}}">
